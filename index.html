@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's stats</title>
     <link rel="stylesheet" href="style.css">
-    <script src="key.js"></script>
+    <script src="keys.js"></script>
 
 
 </head>
@@ -15,22 +15,31 @@
     <div class="app">
         <div class="header">
             <h1>Next time gramy dusta App</h1>
-            <div id="stats">
-                <div id="greeting">
-                    <p>Meczyki zagrane dnia: </p>
-                </div>
-                <div id="data"></div>
-                <div id="maps"></div>
+            <div id="statsInputs">
+                <label for="daysAmountLabel">Enter the amount of days:</label><br>
+                <input type="number" id="daysAmountId" name="days" onchange="updateDays()""><br>
+                    <button type=" button" id="statsButton">Generowanie statystyk</button>
             </div>
+            <div id="stats">
+                <!-- todo: make this section more cool and display maps in order?  -->
+                <!-- <div id="greeting">
+                    <p>Meczyki zagrane dnia: </p>
+                </div> -->
+                <!-- <div id="data"></div> -->
+                <!-- <div id="maps"></div> -->
+                <div id="statsTable"></div>
+            </div>
+
         </div>
 
-        <!-- <div class="slideshow" id="slideshow"> -->
     </div>
     </div>
-    <script src="intro.js"></script>
-    <script src="main.js"></script>
+    <script src="matchDetails.js"></script>
+    <script src="faceitDataProvider.js"></script>
+    <script src="matchesIds.js"></script>
+    <script src="gatheringStats.js"></script>
+    <script src="processedStats.js"></script>
     <script src="generateTable.js"></script>
-
 
 </body>
 

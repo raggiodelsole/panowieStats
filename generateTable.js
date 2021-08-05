@@ -1,59 +1,60 @@
-function generateTable() {
-  // get the reference for the body
-  let body = document.getElementsByTagName("body")[0];
+let daysAmount = 0;
 
-  // creates a <table> element and a <tbody> element
+async function generateTable() {
+  const data = await main();
+  console.log("data");
+  console.log(data);
+  let body = document.getElementsByTagName("body")[0];
+  removeTableIfPresent();
   let tbl = document.createElement("table");
   let tblBody = document.createElement("tbody");
+  createHeaders(tblBody, data[0]);
+  generateTableBody(tblBody, data);
+  tbl.appendChild(tblBody);
+  body.appendChild(tbl);
+  tbl.setAttribute("border", "2");
+  tbl.setAttribute("id", "statsTable");
+  tbl.setAttribute("align", "center");
+}
 
-    //create headers
-    
-        createHeaders(tblBody);
-      
-
-  // creating all cells
-  for (let i = 0; i < 2; i++) {
-    // creates a table row
+function generateTableBody(tblBody, data) {
+  for (const player of data) {
     let row = document.createElement("tr");
-
-    for (let j = 0; j < 2; j++) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
+    for (const value of Object.values(player)) {
       let cell = document.createElement("td");
-      let cellText = document.createTextNode(
-        "cell in row " + i + ", column " + j
-      );
+      let cellText = document.createTextNode(value);
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
 
-    // add the row to the end of the table body
     tblBody.appendChild(row);
   }
-
-  // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tbl);
-  // sets the border attribute of tbl to 2;
-  tbl.setAttribute("border", "2");
 }
 
-generateTable();
-function createHeaders(tblBody) {
-    let row = document.createElement("tr");
-
-    for (let j = 0; j < 2; j++) {
-        let cell = document.createElement("th");
-        let cellText = document.createTextNode(
-            "cell in row , header " + j
-        );
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+function createHeaders(tblBody, playerData) {
+  let row = document.createElement("tr");
+  if (playerData) {
+    for (const prop of Object.getOwnPropertyNames(playerData)) {
+      let cell = document.createElement("th");
+      let cellText = document.createTextNode(prop);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
     }
-
-    // add the row to the end of the table body
     tblBody.appendChild(row);
+  } else {
+    console.log("playerData jest jakims nullem czy czyms takiem");
+  }
 }
 
+document.getElementById("statsButton").addEventListener("click", generateTable);
+
+function removeTableIfPresent() {
+  let tbl = document.getElementById("statsTable");
+  if (tbl) {
+    tbl.remove();
+  }
+}
+
+function updateDays() {
+  daysAmount = document.getElementById("daysAmountId").value;
+}

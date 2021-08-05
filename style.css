@@ -3,12 +3,24 @@ body {
   background-color: rgb(240, 240, 240);
   font-family: arial, sans-serif;
   font-size: 14px;
+  background-image: url("https://external-preview.redd.it/hidQgjESbV-RDunven9BuIwPCTyrrU08sHp4bq4xJX8.jpg?auto=webp&s=1e16e02253997a74d3c96d6343e392b24fb3af68");
+  background-size: 100% auto;
+  text-align: center;
+
+}
+#statsButton{
+  margin: 25px;
+  padding: 15px;
 }
 
+
 h1 {
+  height: auto;
   font-size: 35px;
   font-weight: normal;
   margin-top: 5px;
+  border: 5px solid #030301;
+  text-align: center;
 }
 
 #greeting,
@@ -27,4 +39,54 @@ h1 {
 }
 #maps {
   background-color: rgb(96, 88, 110);
+}
+
+table.darkTable {
+  font-family: "Arial Black", Gadget, sans-serif;
+  border: 2px solid #000000;
+  background-color: #4A4A4A;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.darkTable td, table.darkTable th {
+  border: 1px solid #4A4A4A;
+  padding: 3px 2px;
+}
+table tbody td {
+  font-size: 13px;
+  color: #E6E6E6;
+}
+table tr:nth-child(even) {
+  background: #888888;
+}
+table thead {
+  background: #000000;
+  border-bottom: 3px solid #000000;
+}
+table thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #E6E6E6;
+  text-align: center;
+  border-left: 2px solid #4A4A4A;
+}
+table thead th:first-child {
+  border-left: none;
+}
+
+table {
+  text-align:center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #E6E6E6;
+  background: #000000;
+  background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
+  border-top: 1px solid #4A4A4A;
+}
+table td {
+  font-size: 12px;
 }
